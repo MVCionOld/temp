@@ -48,31 +48,56 @@ def build_bridge(start, end, path):
     return bridge
 
 
-def parse(start, end, path):
-    if {start, end} & set(os.listdir(path)) != {start, end}:
-        raise ValueError(f"There are no articles '{start}', '{end}'")
+class HtmlMatcher:
 
-    bridge = build_bridge(start, end, path)
+    def __init__(self, body):
+        self.body = body
 
-    out = {}
-    for file in bridge:
-        soup = BeautifulSoup(get_bfile(file, path).decode(), "html.parser")
-
-        body = soup.find(id="bodyContent")
-
-        imgs = 0  # Количество картинок (img) с шириной (width) не меньше 200
-        headers = 0  # Количество заголовков, первая буква текста внутри которого: E, T или C
-        linkslen = 0  # Длина максимальной последовательности ссылок, между которыми нет других тегов
-        lists = 0  # Количество списков, не вложенных в другие списки
-
-        for image in body.find_all(name='img'):
+    def count_matched_imgs(self):
+        imgs = 0
+        for image in self.body.find_all(name='img'):
             if image.has_attr('width'):
                 imgs += 1 if int(image['width']) >= 200 else 0
+        return imgs
 
-        for header in body.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
-            if re.match(r"[ETC].*", header.get_text()):
+    def count_matched_headers(self):
+        headers = 0
+        for header in self.body.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']):
+            if re.match(r"^[ETC].*$", header.get_text()):
                 headers += 1
+        return headers
+
+    def count_max_links_sequence(self):
+        return 0
+
+    def count_unwrapped_lists(self):
+        lists = 0
+        for list_ in self.body.find_all(["ul", "ol"]):
+            if len({"ul", "ol"} & set([tag.name for tag in list_.parents])) == 0:
+                lists += 1
+        return lists
+
+
+def parse(start, end, path):
+    if {start, end} & set(os.listdir(path)) != {start, end}:
+        raise ValueError(f"There are no articles: '{start}', '{end}'")
+
+    bridge = build_bridge(start, end, path)
+    out = {}
+
+    for file in bridge:
+        soup = BeautifulSoup(get_bfile(file, path).decode(), "html.parser")
+        body = soup.find(id="bodyContent")
+        matcher = HtmlMatcher(body)
+
+        imgs = matcher.count_matched_imgs()
+        headers = matcher.count_matched_headers()
+        # Длина максимальной последовательности ссылок, между которыми нет других тегов
+        linkslen = matcher.count_max_links_sequence()
+        # Количество списков, не вложенных в другие списки
+        lists = matcher.count_unwrapped_lists()
 
         out[file] = [imgs, headers, linkslen, lists]
 
+    print(out) # DELETE
     return out
