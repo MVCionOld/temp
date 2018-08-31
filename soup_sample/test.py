@@ -1,92 +1,61 @@
-import os
-import re
-
-import collections
 from bs4 import BeautifulSoup
+import re
+import os
 
 
-def get_redirect_links(filename, path):
-    link_re = re.compile(r"(?<=/wiki/)[\w()]+")
-    with open(os.path.join(path, filename), "rb") as html_file:
-        html = html_file.read().decode()
-        data = re.findall(link_re, html)
-        return list(set(data) & set(os.listdir(path)))
-
-
-"""
-def build_tree(start, end, path):
-    files = dict(itertools.zip_longest(os.listdir(path), [], fillvalue=set()))
-    files_entries = set()
-    for filename in files.keys():
-        for redirect_filename in get_redirect_links(filename, path):
-            if redirect_filename in files_entries:
-                files[filename].add(redirect_filename)
-                files[redirect_filename].add(filename)
-    for filename in files.keys():
-        files[filename] = list(files[filename])
-    return files
-"""
-
-
-def build_tree(path, start, end):
-    visited = {start}
-    queue = collections.deque([start])
-    parents = {start: None}
-    while queue:
-        current = queue.popleft()
-        if current == end:
-            break
-        for next_article in get_redirect_links(current, path):
-            if next_article not in visited:
-                queue.append(next_article)
-                parents[next_article] = current
-                visited.add(next_article)
-                if next_article == end:
-                    return parents, True
-    return parents, False
-
-
-# Вспомогательная функция, её наличие не обязательно и не будет проверяться
 def build_bridge(start, end, path):
-    bridge, current = [], end
-    parents, correct = build_tree(path, start, end)
+    def build_tree(start, end, path):
+        link_re = re.compile(r"(?<=/wiki/)[\w()]+")
+        files = dict.fromkeys(os.listdir(path), False)
+        current_links = [start]
+        while current_links:
+            new_links = []
+            for name in current_links:
+                with open("{}{}".format(path, name)) as data:
+                    links = re.findall(link_re, data.read())
+                for link in links:
+                    if files.get(link) is False:
+                        files[link] = name
+                        if link == end:
+                            return files
+                        new_links.append(link)
+            current_links = new_links
 
-    if not correct:
-        return []
-
-    while current is not None:
-        bridge.append(current)
-        current = parents[current]
+    files = build_tree(start, end, path)
+    current_link, bridge = end, [end]
+    while current_link != start:
+        current_link = files[current_link]
+        bridge.append(current_link)
     return bridge
 
 
 def parse(start, end, path):
-    """
-    Если не получается найти список страниц bridge, через ссылки на которых можно добраться от start до end, то,
-    по крайней мере, известны сами start и end, и можно распарсить хотя бы их: bridge = [end, start]. Оценка за тест,
-    в этом случае, будет сильно снижена, но на минимальный проходной балл наберется, и тест будет пройден.
-    Чтобы получить максимальный балл, придется искать все страницы. Удачи!
-    """
+    bridge = build_bridge(start, end, path)
 
-    if {start, end} & set(os.listdir(path)) != {start, end}:
-        raise ValueError(f"There are no articles '{start}', '{end}'")
-
-    bridge = build_bridge(start, end, path)  # Искать список страниц можно как угодно, даже так: bridge = [end, start]
-
-    # Когда есть список страниц, из них нужно вытащить данные и вернуть их
     out = {}
     for file in bridge:
         with open("{}{}".format(path, file)) as data:
-            soup = BeautifulSoup(data, "html.parser")
+            soup = BeautifulSoup(data, "lxml")
+            body = soup.find(id="bodyContent")
 
-        body = soup.find(id="bodyContent")
+            imgs = len(body.find_all('img', width=lambda x: int(x or 0) > 199))
+            headers = sum(
+                1 for tag in body.find_all(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']) if tag.get_text()[0] in "ETC"
+            )
+            lists = sum(1 for tag in body.find_all(['ol', 'ul']) if not tag.find_parent(['ol', 'ul']))
 
-        # TODO посчитать реальные значения
-        imgs = 5  # Количество картинок (img) с шириной (width) не меньше 200
-        headers = 10  # Количество заголовков, первая буква текста внутри которого: E, T или C
-        linkslen = 15  # Длина максимальной последовательности ссылок, между которыми нет других тегов
-        lists = 20  # Количество списков, не вложенных в другие списки
+            tag = body.find_next("a")
+            linkslen = -1
+            while (tag):
+                curlen = 1
+                for tag in tag.find_next_siblings():
+                    if tag.name != 'a':
+                        break
+                    curlen += 1
+                if curlen > linkslen:
+                    linkslen = curlen
+                tag = tag.find_next("a")
 
-        out[file] = [imgs, headers, linkslen, lists]
+            out[file] = [imgs, headers, linkslen, lists]
 
     return out
