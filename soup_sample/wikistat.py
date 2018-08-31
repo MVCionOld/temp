@@ -68,7 +68,16 @@ class HtmlMatcher:
         return headers
 
     def count_max_links_sequence(self):
-        return 0
+        linkslen = 0
+        for link in self.body.find_all('a'):
+            curlen = 0
+            for next_link in link.find_next_siblings():
+                if next_link.name == 'a':
+                    curlen += 1
+                else:
+                    break
+            linkslen = max(curlen, linkslen)
+        return linkslen + 1
 
     def count_unwrapped_lists(self):
         lists = 0
@@ -92,12 +101,9 @@ def parse(start, end, path):
 
         imgs = matcher.count_matched_imgs()
         headers = matcher.count_matched_headers()
-        # Длина максимальной последовательности ссылок, между которыми нет других тегов
         linkslen = matcher.count_max_links_sequence()
-        # Количество списков, не вложенных в другие списки
         lists = matcher.count_unwrapped_lists()
 
         out[file] = [imgs, headers, linkslen, lists]
 
-    print(out) # DELETE
     return out
