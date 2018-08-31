@@ -1,21 +1,62 @@
-from bs4 import BeautifulSoup
-import re
+import collections
+import itertools
 import os
+import re
+
+from bs4 import BeautifulSoup
 
 
-# Вспомогательная функция, её наличие не обязательно и не будет проверяться
+def get_redirect_links(filename, path):
+    link_re = re.compile(r"(?<=/wiki/)[\w()]+")
+    with open(os.path.join(path, filename), "rb") as html_file:
+        html = html_file.read().decode()
+        data = re.findall(link_re, html)
+        return list(set(data))
+
+
 def build_tree(start, end, path):
-    link_re = re.compile(r"(?<=/wiki/)[\w()]+")  # Искать ссылки можно как угодно, не обязательно через re
-    files = dict.fromkeys(os.listdir(path))  # Словарь вида {"filename1": None, "filename2": None, ...}
-    # TODO Проставить всем ключам в files правильного родителя в значение, начиная от start
+    files = dict(itertools.zip_longest(os.listdir(path), [], fillvalue=set()))
+    files_entries = set(os.listdir(path))
+    for filename in files.keys():
+        for redirect_filename in get_redirect_links(filename, path):
+            if redirect_filename in files_entries:
+                files[filename].add(redirect_filename)
+                files[redirect_filename].add(filename)
+    for filename in files.keys():
+        files[filename] = list(files[filename])
     return files
+
+
+def bfs(files, start, end):
+    visited = {start}
+    queue = collections.deque([start])
+    parents = dict(start=None)
+    while queue:
+        current = queue.popleft()
+        if current == end:
+            break
+        for next in files[current]:
+            if next not in visited:
+                queue.append(next)
+                parents[next] = current
+                visited.add(next)
+                if next == end:
+                    return parents, True
+    return parents, False
 
 
 # Вспомогательная функция, её наличие не обязательно и не будет проверяться
 def build_bridge(start, end, path):
     files = build_tree(start, end, path)
-    bridge = []
-    # TODO Добавить нужные страницы в bridge
+    bridge, current = [], end
+    parents, correct = bfs(files, start, end)
+
+    if not correct:
+        return []
+
+    while current is not None:
+        bridge.append(current)
+        current = parents[current]
     return bridge
 
 
