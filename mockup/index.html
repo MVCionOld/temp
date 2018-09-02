@@ -14,11 +14,12 @@
 </head>
 <body>
 
-<div id="wrapper" class="animate">
+<div id="wrapper" class="animate" align="center">
     <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
         <span class="navbar-toggler-icon leftmenutrigger"></span>
         <a class="navbar-brand" href="#">Coursera homework</a>
-        <button class="navbar-toggler"
+        <button id="menuButton"
+                class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
                 data-target="#navbarText"
@@ -63,141 +64,116 @@
     <div class="container-fluid">
 
         <!-- ------------------------------------------------------------------------------------- -->
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Popular Tags</h5>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Theme</th>
-                                <th scope="col">Total views</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Best Members</h5>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">User Nickname</th>
-                                <th scope="col">Сontributions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                            </tr>
-                            </tbody>
-                        </table>
+        <table>
+            <tr>
+                <td rowspan="2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!--
+                                    <h5 class="card-title">Try Other</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
+                                        link to view all Bootstrap Menu versions.</p>
+                                    <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
+                                    <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
+                                    -->
+                                    <div id="userShortcut">
+
+                                    </div>
+                                    <div id="article">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Popular Tags</h5>
+                                    <table class="table" id="tableBodyTags">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Theme</th>
+                                            <th scope="col">Total views</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="row in rows">
+                                            <th scope="row">{{ row.id }}</th>
+                                            <td>{{ row.theme }}</td>
+                                            <td>{{ row.totalViews }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Best Members</h5>
+                                    <table class="table" id="tableBodyMembers">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">User Nickname</th>
+                                            <th scope="col">Сontributions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="row in rows">
+                                            <th scope="row">{{ row.id }}</th>
+                                            <td>{{ row.nickname }}</td>
+                                            <td>{{ row.contributions }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
         <!-- ------------------------------------------------------------------------------------- -->
 
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                            link to view all Bootstrap Menu versions.</p>
-                        <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                        <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                            link to view all Bootstrap Menu versions.</p>
-                        <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                        <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                            link to view all Bootstrap Menu versions.</p>
-                        <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                        <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                            link to view all Bootstrap Menu versions.</p>
-                        <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                        <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Try Other</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                        <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                            link to view all Bootstrap Menu versions.</p>
-                        <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                        <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col">
                 <div class="card">
