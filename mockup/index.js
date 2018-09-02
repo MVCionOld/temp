@@ -4,3 +4,17 @@ let app = new Vue({
         message: "Hello, World!"
     }
 });
+
+let tableBodyTags = new View({
+    el: "#tableBodyTags",
+    data: {
+
+    }
+});
+
+let tableBodyMembers = new View({
+    el: "#tableBodyMembers",
+    data: {
+
+    }
+});
