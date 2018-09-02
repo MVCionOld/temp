@@ -34,7 +34,13 @@ body {
     background: #f9f9f9;
 }
 
-#left {
+#content_ {
+    overflow: auto;
+    width: 100%;
+    background: #f9f9f9;
+}
+
+#left, #left_ {
     width: 30%;
     margin: 2px;
     padding: 1em;
@@ -42,12 +48,21 @@ body {
     float: left;
 }
 
-#right {
+#right, #right_ {
     width: 69%;
     margin: 2px;
     padding: 1em;
     background: white;
     float: right;
+}
+
+.avatar {
+    vertical-align: top;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
 }
 
 @media (min-width: 992px) {

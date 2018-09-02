@@ -72,40 +72,9 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <!--
-                                    <h5 class="card-title">Try Other</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu. Click below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                                    <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
-                                    -->
                                     <div id="content">
                                         <div id="left">
-                                            <div id="object1">some stuff</div>
-                                            <div id="object2">some more stuff</div>
+                                            <img src="img_avatar.png" alt="Avatar" class="avatar">
                                         </div>
 
                                         <div id="right">
@@ -113,7 +82,6 @@
                                             <div id="object4">mas cosas para ti</div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -182,19 +150,22 @@
 
         <div id="issueComment">
             <ul class="list-unstyled">
-                <li>
+                <li v-for="comment in commentators">
                     <div class="row">
                         <div class="col">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Try Other</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Bootstrap 4.0.0 Snippet by pradeep330</h6>
-                                    <p class="card-text">You can also try different version of Bootstrap V4 side menu.
-                                        Click
-                                        below
-                                        link to view all Bootstrap Menu versions.</p>
-                                    <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
-                                    <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
+                                    <div id="content_">
+                                        <div id="left_">
+                                            <img src={{ comment.avatar }} alt="Avatar" class="avatar">
+                                            <p>{{ comment.nickname }}</p>
+                                        </div>
+                                        <div id="right_">
+                                            <article>
+                                                {{ comment.text }}
+                                            </article>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

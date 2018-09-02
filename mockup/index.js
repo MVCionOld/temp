@@ -31,5 +31,13 @@ let userShortcut = new Vue({
 });
 
 let issueComment = new Vue({
-
+    el: "#issueComment",
+    data: {
+        commentators: [
+            {nickname: "Annaid", avatar:"img_avatar1.png", text: ""},
+            {nickname: "Nal", avatar:"img_avatar2.png", text: ""},
+            {nickname: "Jeu", avatar:"img_avatar3.png", text: ""},
+            {nickname: "Olllobeby", avatar:"img_avatar4.png", text: ""}
+        ]
+    }
 });
