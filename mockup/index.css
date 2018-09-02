@@ -28,6 +28,28 @@ body {
     display: none
 }
 
+#content {
+    overflow: auto;
+    width: 1085px;
+    background: #f9f9f9;
+}
+
+#left {
+    width: 30%;
+    margin: 2px;
+    padding: 1em;
+    background: white;
+    float: left;
+}
+
+#right {
+    width: 69%;
+    margin: 2px;
+    padding: 1em;
+    background: white;
+    float: right;
+}
+
 @media (min-width: 992px) {
     .leftmenutrigger {
         display: block;
@@ -66,7 +88,6 @@ body {
     -ms-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
-
 
 .footer {
     position: fixed;

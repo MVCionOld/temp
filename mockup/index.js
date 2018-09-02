@@ -3,11 +3,6 @@ let menuButton = new Vue({
     data: {}
 });
 
-let userShortcut = new Vue({
-    el: "#userShortcut",
-    data: {}
-});
-
 let tableBodyTags = new Vue({
     el: "#tableBodyTags",
     data: {
@@ -28,4 +23,13 @@ let tableBodyMembers = new Vue({
             {id:3, nickname: "ChipX", contributions: 173}
         ]
     }
+});
+
+let userShortcut = new Vue({
+    el: "#userShortcut",
+    data: {}
+});
+
+let issueComment = new Vue({
+
 });

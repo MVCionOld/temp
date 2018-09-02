@@ -102,12 +102,18 @@
                                     <a href="https://bootsnipp.com/pradeep330" class="card-link">link</a>
                                     <a href="http://websitedesigntamilnadu.com" class="card-link">Another link</a>
                                     -->
-                                    <div id="userShortcut">
+                                    <div id="content">
+                                        <div id="left">
+                                            <div id="object1">some stuff</div>
+                                            <div id="object2">some more stuff</div>
+                                        </div>
 
+                                        <div id="right">
+                                            <div id="object3">unas cosas</div>
+                                            <div id="object4">mas cosas para ti</div>
+                                        </div>
                                     </div>
-                                    <div id="article">
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +136,7 @@
                                         <tbody>
                                         <tr v-for="row in rows">
                                             <th scope="row">{{ row.id }}</th>
-                                            <td>{{ row.theme }}</td>
+                                            <td><a class="nav-link" href="#">{{ row.theme }}</a></td>
                                             <td>{{ row.totalViews }}</td>
                                         </tr>
                                         </tbody>
@@ -159,7 +165,7 @@
                                         <tbody>
                                         <tr v-for="row in rows">
                                             <th scope="row">{{ row.id }}</th>
-                                            <td>{{ row.nickname }}</td>
+                                            <td><a class="nav-link" href="#">{{ row.nickname }}</a></td>
                                             <td>{{ row.contributions }}</td>
                                         </tr>
                                         </tbody>
@@ -188,6 +194,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- ------------------------------------------------------------------------------------- -->
