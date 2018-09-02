@@ -60,7 +60,7 @@ body {
     width: 30%;
 }
 
-#right{
+#right {
     width: 69%;
 }
 
@@ -72,7 +72,7 @@ body {
     width: 79%;
 }
 
-.avatar, .avatar_  {
+.avatar, .avatar_ {
     vertical-align: top;
     margin-left: auto;
     margin-right: auto;
@@ -128,75 +128,90 @@ body {
     transition: all .3s ease-in-out
 }
 
-
 .detailBox {
-    width:320px;
-    border:1px solid #bbb;
-    margin:50px;
+    width: 320px;
+    border: 1px solid #bbb;
+    margin: 50px;
 }
+
 .titleBox {
-    background-color:#fdfdfd;
-    padding:10px;
+    background-color: #fdfdfd;
+    padding: 10px;
 }
-.titleBox label{
-    color:#444;
-    margin:0;
-    display:inline-block;
+
+.titleBox label {
+    color: #444;
+    margin: 0;
+    display: inline-block;
 }
 
 .commentBox {
-    padding:10px;
-    border-top:1px dotted #bbb;
+    padding: 10px;
+    border-top: 1px dotted #bbb;
 }
+
 .commentBox .form-group:first-child, .actionBox .form-group:first-child {
-    width:80%;
+    width: 80%;
 }
+
 .commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
-    width:18%;
+    width: 18%;
 }
+
 .actionBox .form-group * {
-    width:100%;
+    width: 100%;
 }
+
 .taskDescription {
-    margin-top:10px;
+    margin-top: 10px;
 }
+
 .commentList {
-    padding:0;
-    list-style:none;
-    max-height:200px;
-    overflow:auto;
+    padding: 0;
+    list-style: none;
+    max-height: 200px;
+    overflow: auto;
 }
+
 .commentList li {
-    margin:0;
-    margin-top:10px;
+    margin: 0;
+    margin-top: 10px;
 }
+
 .commentList li > div {
-    display:table-cell;
+    display: table-cell;
 }
+
 .commenterImage {
-    width:30px;
-    margin-right:5px;
-    height:100%;
-    float:left;
+    width: 30px;
+    margin-right: 5px;
+    height: 100%;
+    float: left;
 }
+
 .commenterImage img {
-    width:100%;
-    border-radius:50%;
+    width: 100%;
+    border-radius: 50%;
 }
+
 .commentText p {
-    margin:0;
+    margin: 0;
 }
+
 .sub-text {
-    color:#aaa;
-    font-family:verdana;
-    font-size:11px;
+    color: #aaa;
+    font-family: verdana;
+    font-size: 11px;
 }
+
 .actionBox {
-    border-top:1px dotted #bbb;
-    padding:10px;
+    border-top: 1px dotted #bbb;
+    padding: 10px;
 }
 
-
+form {
+    margin: 0 auto;
+}
 
 .footer {
     position: fixed;
