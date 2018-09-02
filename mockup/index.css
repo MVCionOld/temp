@@ -41,28 +41,52 @@ body {
 }
 
 #left, #left_ {
-    width: 30%;
     margin: 2px;
     padding: 1em;
     background: white;
     float: left;
+    vertical-align: middle;
 }
 
 #right, #right_ {
-    width: 69%;
     margin: 2px;
     padding: 1em;
     background: white;
     float: right;
+    vertical-align: middle;
 }
 
-.avatar {
+#left {
+    width: 30%;
+}
+
+#right{
+    width: 69%;
+}
+
+#left_ {
+    width: 20%;
+}
+
+#right_ {
+    width: 79%;
+}
+
+.avatar, .avatar_  {
     vertical-align: top;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
-    height: 80%;
     border-radius: 50%;
+}
+
+.avatar {
+    width: 98%;
+    height: 98%;
+}
+
+.avatar_ {
+    width: 40%;
+    height: 40%;
 }
 
 @media (min-width: 992px) {
@@ -103,6 +127,76 @@ body {
     -ms-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out
 }
+
+
+.detailBox {
+    width:320px;
+    border:1px solid #bbb;
+    margin:50px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+    color:#444;
+    margin:0;
+    display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+
+
 
 .footer {
     position: fixed;

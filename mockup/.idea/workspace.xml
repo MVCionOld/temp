@@ -67,17 +67,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="164" />
-          <entry key="html" value="579" />
-          <entry key="js" value="425" />
+          <entry key="css" value="228" />
+          <entry key="html" value="661" />
+          <entry key="js" value="448" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="164" />
-          <entry key="HTML" value="579" />
-          <entry key="JavaScript" value="425" />
+          <entry key="CSS" value="228" />
+          <entry key="HTML" value="661" />
+          <entry key="JavaScript" value="448" />
           <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
@@ -98,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
+            <state relative-caret-position="402">
+              <caret line="202" column="14" selection-start-line="202" selection-start-column="14" selection-end-line="202" selection-end-column="14" />
               <folding>
                 <element signature="n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -114,8 +114,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-550">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="368">
+              <caret line="138" column="17" lean-forward="true" selection-start-line="138" selection-start-column="17" selection-end-line="138" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -123,8 +123,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+            <state relative-caret-position="340">
+              <caret line="38" column="71" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="71" />
               <folding>
                 <element signature="e#121#150#0" />
                 <element signature="e#442#658#0" />
@@ -154,8 +154,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/index.css" />
         <option value="$PROJECT_DIR$/index.js" />
+        <option value="$PROJECT_DIR$/index.css" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -223,7 +223,7 @@
       <option name="presentableId" value="Default" />
       <updated>1535847772261</updated>
       <workItem from="1535847775973" duration="5736000" />
-      <workItem from="1535853790851" duration="7401000" />
+      <workItem from="1535853790851" duration="10079000" />
     </task>
     <task id="LOCAL-00001" summary="WIF">
       <created>1535854659625</created>
@@ -253,11 +253,25 @@
       <option name="project" value="LOCAL" />
       <updated>1535858842035</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="WIF">
+      <created>1535861343567</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1535861343567</updated>
+    </task>
+    <task id="LOCAL-00006" summary="WIF">
+      <created>1535861365184</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1535861365184</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13137000" />
+    <option name="totallyTimeSpent" value="15815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -319,17 +333,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-550">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        <state relative-caret-position="340">
+          <caret line="38" column="71" selection-start-line="38" selection-start-column="71" selection-end-line="38" selection-end-column="71" />
           <folding>
             <element signature="e#121#150#0" />
             <element signature="e#442#658#0" />
@@ -337,10 +344,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="138" column="17" lean-forward="true" selection-start-line="138" selection-start-column="17" selection-end-line="138" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
+        <state relative-caret-position="402">
+          <caret line="202" column="14" selection-start-line="202" selection-start-column="14" selection-end-line="202" selection-end-column="14" />
           <folding>
             <element signature="n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#footer#0;n#div#0;n#body#0;n#html#0;n#!!top" />

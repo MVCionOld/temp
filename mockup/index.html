@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html">
@@ -78,8 +78,19 @@
                                         </div>
 
                                         <div id="right">
-                                            <div id="object3">unas cosas</div>
-                                            <div id="object4">mas cosas para ti</div>
+                                            <h1>The Unified Modeling Language vs. Unified Modeling Language</h1>
+                                            <p>
+                                                Visual modeling tools provide a mechanism to create and manipulate class
+                                                diagrams using the Unified Modeling Language (UML). UML is discussed
+                                                throughout this book, and you can find a description of this notation in
+                                                Chapter 10, “Creating Object Models with UML.”
+                                                As you can see, Unified Modeling Language has the definite article the
+                                                in front of it, which, I believe, is absolutely correct. That's exactly
+                                                how it's used in the Wikipedia article for UML as well as it just makes
+                                                perfect grammatical sense to use one in this situation. However, a few
+                                                pages further down, for no rhyme or reason the author all of a sudden
+                                                completely does away with the article:
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -157,13 +168,13 @@
                                 <div class="card-body">
                                     <div id="content_">
                                         <div id="left_">
-                                            <img src={{ comment.avatar }} alt="Avatar" class="avatar">
+                                            <img v-bind:src="comment.avatar" alt="Avatar" class="avatar_">
                                             <p>{{ comment.nickname }}</p>
                                         </div>
                                         <div id="right_">
-                                            <article>
+                                            <p>
                                                 {{ comment.text }}
-                                            </article>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -174,8 +185,22 @@
             </ul>
         </div>
 
-    </div>
-
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-inline" role="form">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Your comments"/>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- ------------------------------------------------------------------------------------- -->
     <!-- ------------------------------------------------------------------------------------- -->
 
